@@ -3,18 +3,26 @@ const morgan = require('morgan');
 const ig = require('instagram-node');
 const engine = require('ejs-mate');
 const path = require('path');
-var mongoose = require('mongoose');
+var bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+const data = require('./models/data');
 
-mongoose.connect('mongodb://localhost/BigData', { useNewUrlParser: true } , function(error){
+
+mongoose.connect('mongodb://localhost/BigData', { useNewUrlParser: true } , function(error, BigData){
     if (error) {
         throw error;
     }else{
+        db = BigData;
         console.log('conectando a mongodb')
     }
 });
 
 
+
 const app = express();
+
+app.use(require('./routes/index'));
+
 
 //settings
 app.engine('ejs',engine);
@@ -27,7 +35,7 @@ app.use(morgan('dev'));
 
 //routes
 
-app.use(require('./routes/index'));
+
 
 //empezar el servidor
 app.listen(3000);
