@@ -84,6 +84,23 @@ router.get('/login', async (req,res) => {
     /*res.redirect('/auth/instagram');*/
 });
 
+//token3
+instagram.config.accessToken = '1310978167.1677ed0.38b74d8a2e1d493288777fc390a39d21';
+
+router.get('/login', async (req,res) => {
+    try {
+        const media = await instagram.get('users/self/media/recent');
+        console.log(media);
+
+        res.render('login');
+        
+    }catch (e){
+        
+
+    }
+    /*res.redirect('/auth/instagram');*/
+});
+
 router.get('/', (req,res) => {
     res.render('index')
 });
