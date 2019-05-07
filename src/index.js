@@ -17,12 +17,9 @@ mongoose.connect('mongodb://localhost/BigData', { useNewUrlParser: true } , func
     }
 });
 
-
-
 const app = express();
 
 app.use(require('./routes/index'));
-
 
 //settings
 app.engine('ejs',engine);

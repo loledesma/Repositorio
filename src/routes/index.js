@@ -58,17 +58,16 @@ router.get('/login', async (req,res) => {
             else
               res.send('Success');
         });
-    
-        res.redirect('/resultado');
+        /*res.redirect('/resultado');*/
     }catch (e){
     
     }
     /*res.redirect('/auth/instagram');*/
 });
-
+/*
 router.get('/resultado', (req,res) => {
-    res.render('login')
-});
+    
+});*/
 
 router.get('/', (req,res) => {
     res.render('index')
